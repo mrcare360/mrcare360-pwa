@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MR Care 360+</title>
+  <meta name="theme-color" content="#0D69B4"/>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <meta name="description" content="Clínica de enfermería integral con infusiones IV, manejo de peso y cuidado holístico bajo supervisión médica.">
+  <script>
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js');
+      });
+    }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <img src="assets/img/logo-clinica.png" alt="MR Care 360+ logo" class="logo" />
+    <div class="title">
+      <h1>MR Care 360+</h1>
+      <p id="tagline">¡Estamos aquí para apoyarte en cada paso!</p>
+    </div>
+    <button id="langToggle" class="lang">ES/EN</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2 id="welcome">Bienvenido a MR Care 360+</h2>
+      <div class="quick-actions">
+        <a class="btn primary" href="#services" id="ctaCocktails">Cocteles de Infusión</a>
+        <a class="btn" href="#appointments" id="ctaAppointments">Agendar Cita</a>
+        <a class="btn outline" target="_blank" id="ctaWhatsApp" href="https://wa.me/16893182197">WhatsApp</a>
+        <a class="btn outline" href="tel:16893182197" id="ctaCall">Llamar</a>
+      </div>
+      <p class="disclaimer" id="disclaimer">Esta aplicación no sustituye consejo médico profesional. Los servicios son bajo supervisión médica.</p>
+    </section>
+
+    <section id="services" class="card">
+      <h3 id="servicesTitle">Servicios</h3>
+      <div class="grid">
+        <div class="item">
+          <h4>IV Cocktails</h4>
+          <ul id="cocktailList"></ul>
+        </div>
+        <div class="item">
+          <h4>Vitamin Shots</h4>
+          <ul id="shotsList"></ul>
+        </div>
+        <div class="item">
+          <h4 id="weightTitle">Manejo de Peso (Semaglutide)</h4>
+          <p id="weightDesc">Evaluación, plan de cuidado y seguimiento semanal. Bajo supervisión médica.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="appointments" class="card">
+      <h3 id="apptTitle">Agendar Cita</h3>
+      <form id="apptForm">
+        <label>
+          <span id="lblName">Nombre completo</span>
+          <input type="text" id="name" required>
+        </label>
+        <label>
+          <span id="lblPhone">Teléfono</span>
+          <input type="tel" id="phone" required>
+        </label>
+        <label>
+          <span id="lblService">Servicio</span>
+          <input type="text" id="service" placeholder="NAD+, Myers, Weight..." required>
+        </label>
+        <label>
+          <span id="lblDate">Fecha preferida</span>
+          <input type="date" id="date">
+        </label>
+        <label>
+          <span id="lblTime">Hora preferida</span>
+          <input type="time" id="time">
+        </label>
+        <button type="submit" class="btn primary" id="btnSubmit">Enviar por WhatsApp</button>
+      </form>
+      <p class="hint" id="privacyHint">Al enviar, aceptas ser contactado para coordinar tu cita.</p>
+    </section>
+
+    <section id="contact" class="card">
+      <h3 id="contactTitle">Contacto</h3>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/16893182197">+1 (689) 318-2197</a></p>
+      <p><strong>Teléfono:</strong> <a href="tel:16893182197">+1 (689) 318-2197</a></p>
+      <p><strong>Email:</strong> <a href="mailto:mycare@mrcare360.org">mycare@mrcare360.org</a></p>
+      <p><strong>Web:</strong> <a href="https://www.mrcare360.org" target="_blank" rel="noopener">www.mrcare360.org</a></p>
+    </section>
+  
+    <section id="legal" class="card">
+      <h3>Legal / HIPAA</h3>
+      <p id="hipaaText" class="hipaa"></p>
+    </section>
+    
+  
+    <section id="docs" class="card">
+      <h3>Documentos / Documents</h3>
+      <p><a href="assets/docs/MR_Care_Privacy_Policy_ES_EN.docx" download>Política de Privacidad / Privacy Policy (DOCX)</a></p>
+      <p><a href="assets/docs/MR_Care_Consent_Form_ES_EN.docx" download>Formulario de Consentimiento / Consent Form (DOCX)</a></p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> MR Care 360+ • Vital Essence Drip 360+</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
